@@ -46,7 +46,8 @@
         <div class="text-center p-8">
             <h1 class="text-white text-4xl font-bold mb-4">Get in touch</h1>
             <div class="max-w-md mx-auto bg-white/10 backdrop-blur-md rounded-lg p-6">
-                <form action="#" method="POST" class="space-y-4">
+                <form id="contact-form" method="POST" class="space-y-4">
+                    >
                     <div>
                         <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-800/30 border border-gray-300 placeholder-gray-500 text-black font-bold focus:outline-none focus:border-grey-500">
                     </div>
@@ -87,9 +88,32 @@
         </div>
     </footer>
     <script>
+        // Function to toggle the navigation -- This is already good
         function toggleNav() {
-            var navbar = document.getElementById('navbar-default');
-            navbar.classList.toggle('hidden');
+          var navbar = document.getElementById('navbar-default');
+          navbar.classList.toggle('hidden');
+        }
+      
+        // Initialize EmailJS with your user ID
+        (function(){
+            emailjs.init("tgc1SCCFgwTuOlAQF"); // Replace 'tgc1SCCFgwTuOlAQF' with your actual EmailJS user ID
+        })();
+      
+        // Send the email when the form is submitted
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submit
+        
+                // Generate the email data from the form fields
+                emailjs.sendForm('service_8wzwyld', 'template_wfpju1n', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        alert('Your message has been sent!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send the message, please try again.');
+                    });
+            });
         }
       </script>
 </body>
