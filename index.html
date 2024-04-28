@@ -13,26 +13,25 @@
   height: 100%;
   margin: 0;
   font-family: 'font-mono';
-  overflow-x: hidden; /* Prevents horizontal scroll */
+  overflow-x: hidden; 
 }
 
 .bg-video {
-  /* Positioning and sizing */
+  
   position: fixed; 
   right: 0;
   bottom: 0;
   width: 100vw; 
-  height: 56.25vw; /* Given a 16:9 aspect ratio */
+  height: 56.25vw;
   min-width: 100%;
   min-height: 100%;
   z-index: -1; 
 
-  /* Centering the video in the viewport */
+  
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  /* Ensuring aspect ratio is maintained while covering */
   object-fit: cover;
 }
 
@@ -42,19 +41,67 @@ nav, .hero, footer {
   z-index: 10; 
 }
 .footer-blur {
-  backdrop-filter: blur(40px); /* Increase the px value for a softer blur */
-  -webkit-backdrop-filter: blur(20px); /* For Safari */
+  backdrop-filter: blur(40px); 
+  -webkit-backdrop-filter: blur(20px); 
   padding-top: 1rem;  
-  background-color: rgba(0, 0, 0, 0.2); /* Make sure the footer has a semi-transparent background */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6)); /* Adding a gradient */
+  background-color: rgba(0, 0, 0, 0.2); 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.6));
 }
 .navbar-blur {
-  backdrop-filter: blur(30px); /* Blur effect */
-  -webkit-backdrop-filter: blur(30px); /* For Safari */
-  background-color: rgba(0, 0, 0, 0.8); /* Lighter semi-transparent background */
-  background: linear-gradient(to bottom, rgba(55, 55, 55, 0.2), rgba(55, 55, 55, 0.2)); /* Brighter gradient transition */
+  backdrop-filter: blur(30px); 
+  -webkit-backdrop-filter: blur(30px); 
+  background-color: rgba(0, 0, 0, 0.8); 
+  background: linear-gradient(to bottom, rgba(55, 55, 55, 0.2), rgba(55, 55, 55, 0.2)); 
 }
 
+.button {
+ --glow-color: rgb(66, 153, 225); 
+ --glow-spread-color: rgba(30, 64, 175, 0.781); 
+ --enhanced-glow-color: rgb(99, 179, 237); 
+ --btn-color: rgb(30, 64, 175); 
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: rgb(240, 248, 255); 
+ font-size: 18px;
+ font-weight: 800;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+.button::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.button:hover {
+ color: rgb(240, 248, 255); 
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.button:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
 
 
 
@@ -110,8 +157,10 @@ nav, .hero, footer {
     </h1>
     
       <p class="text-white mt-10 text-lg">UI/UX Designer fueled by a passion for learning. Delving into full-stack development while immersing myself in the worlds of cybersecurity, AI, and Big Data. Seeking to blend design finesse with technical prowess, constantly striving to innovate and evolve in this dynamic digital landscape.</p>
-      <div class="flex mt-5 justify-center"><a href="resume.pdf" download class="bg-white hover:bg-slate-800 text-black text-lg font-extrabold mt-10 py-2 px-4 rounded">Download Resume</a></div>
-      
+      <div class="flex mt-12 justify-center">
+        <a href="resume.pdf" download class="button text-lg font-extrabold py-2 px-4 rounded">Download Resume</a>
+    </div>
+    
 
       <div class="flex justify-center mt-20 space-x-10">
         <a href="#" class="text-white hover:text-gray-300 transition-colors duration-200 text-4xl"><i class="fab fa-instagram"></i></a> 
