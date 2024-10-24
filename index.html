@@ -614,9 +614,92 @@
           <div class="container">
             <div class="home-hero-header">
               <div class="home-hero-heading-wrap">
-                <h1 class="home-hero-heading">
-                  Aspiring Full-Stack Developer.
-                </h1>
+                <h1 class="home-hero-heading" id="3d-heading">Aspiring Full-Stack Developer.</h1>
+                <canvas id="heroCanvas"></canvas>
+                <style>
+                  #3d-heading {
+                    position: relative;
+                    z-index: 2;
+                    color: #ffffff;
+                    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                    font-weight: 700;
+                    font-size: 3.5rem;
+                    letter-spacing: -0.02em;
+                    line-height: 1.2;
+                  }
+                  #heroCanvas {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                  }
+                </style>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+                <script>
+                  // Three.js scene setup
+                  const scene = new THREE.Scene();
+                  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                  const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('heroCanvas'), alpha: true });
+                  
+                  function updateRendererSize() {
+                    const container = document.querySelector('.home-hero-header');
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                  }
+                  
+                  updateRendererSize();
+
+                  // Create floating particles
+                  const particlesGeometry = new THREE.BufferGeometry();
+                  const particlesCount = 2000;
+                  const posArray = new Float32Array(particlesCount * 3);
+
+                  for (let i = 0; i < particlesCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 3;
+                  }
+
+                  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+                  const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.01,
+                    color: 0xa0a0a0,
+                    transparent: true,
+                    opacity: 0.4,
+                  });
+
+                  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                  scene.add(particlesMesh);
+
+                  camera.position.z = 2;
+
+                  // Animation loop
+                  function animate() {
+                    requestAnimationFrame(animate);
+                    particlesMesh.rotation.y += 0.0005;
+                    renderer.render(scene, camera);
+                  }
+                  animate();
+
+                  // Responsive canvas
+                  window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    updateRendererSize();
+                  });
+
+                  // Interactive heading
+                  const heading = document.getElementById('3d-heading');
+                  document.addEventListener('mousemove', (e) => {
+                    const rect = heading.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    const maxRotation = 3;
+                    const rotateX = (y / rect.height) * maxRotation;
+                    const rotateY = -(x / rect.width) * maxRotation;
+                    heading.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                  });
+                </script>
               </div>
               <div class="home-hero-subheading">
                 <p class="text-color-sec">
@@ -648,6 +731,7 @@
   download="Mihir_Patel_Resume.pdf"
   class="cta w-inline-block"
 >
+
   <div class="text-block">Download Resume</div>
   <div class="cta-chevron w-embed">
     <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
@@ -666,23 +750,22 @@
               <div class="home-hero-carousel-wrap">
                 <div class="home-hero-carousel-row" >
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/c++.png" width="50" height="50" alt="c++"/>
+                    <img src="/images/c++.png" width="50" height="50" alt="c++" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/java.png" width="60" height="60" alt="java" />
+                    <img src="/images/java.png" width="60" height="60" alt="java" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/html_css_js.png" width="170" height="50" alt="html_css_js" />
+                    <img src="/images/html_css_js.png" width="170" height="50" alt="html_css_js" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/react.png" width="110" height="35" alt="react"/>
-
+                    <img src="/images/react.png" width="110" height="35" alt="react" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/python.png" width="100" height="90" alt="python" />
+                    <img src="/images/python.png" width="100" height="90" alt="python" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/tailwindcss.png" width="200" height="60" alt="tailwindcss" />
+                    <img src="/images/tailwindcss.png" width="200" height="60" alt="tailwindcss" style="filter: grayscale(100%) opacity(0.7);"/>
                   </div>
                 </div>
                 <div class="home-hero-logos-overlay"></div>
@@ -900,26 +983,29 @@
                         <div class="project-list-item-container">
                           <div class="project-list-img-wrap">
                             <div class="project-list-item-bg w-embed">
-                              <div class="project-list-item-bg" style="background: linear-gradient(45deg, #3a3c47 0%, #6b7077 100%);"></div>
+                              <div class="project-list-item-bg" style="background: linear-gradient(135deg, #f2f2f7 0%, #e5e5ea 100%);"></div>
                             </div>
                             <div class="project-list-img-inner">
-                              <div class="project-content" style="padding: 20px; color: white;">
-                                <h3 class="project-title" style="margin: 0 0 10px 0; font-size: 1.5em;">Project Title</h3>
-                                <p class="project-description" style="margin: 0 0 15px 0;">Brief project description goes here. This is where you can provide a short overview of your project.</p>
-                                <div class="project-tech" style="margin-bottom: 15px;">
-                                  <h4 style="margin: 0 0 5px 0; font-size: 1em;">Technologies Used:</h4>
-                                  <ul style="margin: 0; padding-left: 20px;">
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                    <!-- Add or remove list items as needed -->
-                                  </ul>
+                              <div class="project-content" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                  
+                                  <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">Project Title</h3>
+                                </div>
+                                <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Brief project description goes here. This is where you can provide a short overview of your project.</p>
+                                <div class="project-tech" style="margin-bottom: 20px;">
+                                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">HTML</span>
+                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">CSS</span>
+                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">JavaScript</span>
+                                  </div>
                                 </div>
                                 <div class="project-links" style="display: flex; justify-content: space-between;">
-                                  <a href="#live-site-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 10px 15px; background-color: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
+                                  <a href="#live-site-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                     Live Site
                                   </a>
-                                  <a href="#github-repo-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 10px 15px; background-color: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">
+                                  <a href="#github-repo-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                     GitHub Repo
                                   </a>
                                 </div>
@@ -977,8 +1063,8 @@
                                     transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
                                   ></path>
                                 </g>
-                              </svg>
-                            </div>
+        </svg>
+      </div>
                           </div>
                           <div class="project-list-img-wrap">
                             <div class="project-list-item-bg w-embed">
@@ -2268,11 +2354,41 @@
                     class="card intro-card--stats-cell"
                   >
                     <div class="stats-figure-wrap">
-                      <div class="intro-stats-figure">10</div>
+                      <div class="intro-stats-figure" id="technologies-counter">0</div>
                       <div class="intro-stats-symbol intro-stats-symbol--plus">
                         +
                       </div>
                     </div>
+                    <script>
+                      function animateCounter(elementId, targetValue, duration) {
+                        let startTime = null;
+                        const element = document.getElementById(elementId);
+                        
+                        function step(timestamp) {
+                          if (!startTime) startTime = timestamp;
+                          const progress = Math.min((timestamp - startTime) / duration, 1);
+                          element.textContent = Math.floor(progress * targetValue);
+                          
+                          if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                          }
+                        }
+                        
+                        window.requestAnimationFrame(step);
+                      }
+
+                      // Start the animation when the element is in view
+                      const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                          if (entry.isIntersecting) {
+                            animateCounter('technologies-counter', 10, 2000); // 2000ms duration
+                            observer.unobserve(entry.target);
+                          }
+                        });
+                      });
+
+                      observer.observe(document.getElementById('technologies-counter'));
+                    </script>
                     <div class="stats-description">technologies</div>
                   </div>
                   <div class="card-bg"></div>
@@ -2284,13 +2400,44 @@
                 >
                   <div class="card intro-card--stats-cell">
                     <div class="stats-figure-wrap">
-                      <div class="intro-stats-figure">3</div>
+                      <div class="intro-stats-figure" id="experience-counter">0</div>
+                      <script>
+                        function animateCounter(elementId, targetValue, duration) {
+                          let startTime = null;
+                          const element = document.getElementById(elementId);
+                          
+                          function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
+                            element.textContent = Math.floor(progress * targetValue);
+                            
+                            if (progress < 1) {
+                              window.requestAnimationFrame(step);
+                            }
+                          }
+                          
+                          window.requestAnimationFrame(step);
+                        }
+
+                        // Start the animation when the element is in view
+                        const observer1 = new IntersectionObserver((entries) => {
+                          entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                              animateCounter('experience-counter', 3, 2000); // 2000ms duration
+                              observer.unobserve(entry.target);
+                            }
+                          });
+                        });
+
+                        observer1.observe(document.getElementById('experience-counter'));
+                      </script>
                       <div class="intro-stats-symbol intro-stats-symbol--jahre">
                         years
                       </div>
                     </div>
                     <div class="stats-description">experience</div>
                   </div>
+                  
                   <div class="card-bg"></div>
                   <div class="card-highlight"></div>
                 </div>
@@ -2301,7 +2448,37 @@
                   <div class="card-bg"></div>
                   <div class="card intro-card--stats-cell">
                     <div class="stats-figure-wrap">
-                      <div class="intro-stats-figure">10</div>
+                      <div class="intro-stats-figure" id="projects-counter">0</div>
+                      <script>
+                        function animateCounter(elementId, targetValue, duration) {
+                          let startTime = null;
+                          const element = document.getElementById(elementId);
+                          
+                          function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
+                            element.textContent = Math.floor(progress * targetValue);
+                            
+                            if (progress < 1) {
+                              window.requestAnimationFrame(step);
+                            }
+                          }
+                          
+                          window.requestAnimationFrame(step);
+                        }
+
+                        // Start the animation when the element is in view
+                        const observer2 = new IntersectionObserver((entries) => {
+                          entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                              animateCounter('projects-counter', 10, 2000); // 2000ms duration
+                              observer2.unobserve(entry.target);
+                            }
+                          });
+                        });
+
+                        observer2.observe(document.getElementById('projects-counter'));
+                      </script>
                       <div class="intro-stats-symbol intro-stats-symbol--plus">
                         +
                       </div>
@@ -2316,7 +2493,37 @@
                 >
                   <div class="card intro-card--stats-cell">
                     <div class="stats-figure-wrap">
-                      <div class="intro-stats-figure">100</div>
+                      <div class="intro-stats-figure" id="passion-counter">0</div>
+                      <script>
+                        function animateCounter(elementId, targetValue, duration) {
+                          let startTime = null;
+                          const element = document.getElementById(elementId);
+                          
+                          function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
+                            element.textContent = Math.floor(progress * targetValue);
+                            
+                            if (progress < 1) {
+                              window.requestAnimationFrame(step);
+                            }
+                          }
+                          
+                          window.requestAnimationFrame(step);
+                        }
+
+                        // Start the animation when the element is in view
+                        const observer3 = new IntersectionObserver((entries) => {
+                          entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                              animateCounter('passion-counter', 100, 2000); // 2000ms duration
+                              observer3.unobserve(entry.target);
+                            }
+                          });
+                        });
+
+                        observer3.observe(document.getElementById('passion-counter'));
+                      </script>
                       <div
                         class="intro-stats-symbol intro-stats-symbol--prozent"
                       >
@@ -2664,13 +2871,13 @@
             <div class="about-modal-content">
               <h2 class="about-heading">About Mihir</h2>
               <p class="text-color-sec">
-                Ever since I started coding, I’ve been fascinated by the intersection of technology and creativity. What began as a curiosity quickly turned into a career path, as I explored the world of web development and data visualization. My journey led me to working on diverse projects, from building intuitive websites to creating interactive dashboards for data analysis.
+                Ever since I started coding, I've been fascinated by the intersection of technology and creativity. What began as a curiosity quickly turned into a career path, as I explored the world of web development and data visualization. My journey led me to working on diverse projects, from building intuitive websites to creating interactive dashboards for data analysis.
                 <span class="about-modal-ear-content">
-                  Throughout my academic and professional experiences, I’ve been driven by a desire to bring complex ideas to life through clean and functional design. Leveraging my technical skills and passion for problem-solving, I strive to create impactful solutions that not only look great but also perform exceptionally.
+                  Throughout my academic and professional experiences, I've been driven by a desire to bring complex ideas to life through clean and functional design. Leveraging my technical skills and passion for problem-solving, I strive to create impactful solutions that not only look great but also perform exceptionally.
                 </span>
                 <br />
                 <br />
-                Currently, I work as a developer, collaborating with teams to build dynamic applications and deliver high-quality user experiences. I value collaboration, transparency, and a commitment to excellence, and I’m passionate about working with like-minded individuals to build meaningful digital products.
+                Currently, I work as a developer, collaborating with teams to build dynamic applications and deliver high-quality user experiences. I value collaboration, transparency, and a commitment to excellence, and I'm passionate about working with like-minded individuals to build meaningful digital products.
               </p>
               
               <img
@@ -2686,17 +2893,123 @@
         </div>
       </div>
     </div>
-    <section class="section section--footer" style="padding-bottom: 40px;">
+
+    <style>
+      .about-modal-inner {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .about-modal-content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      
+      .about-modal-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .floating-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const modalContent = document.querySelector('.about-modal-content');
+        const modalWrap = document.querySelector('.modal-wrap--about');
+        
+        if (modalWrap) {
+          modalWrap.addEventListener('click', (e) => {
+            if (e.target === modalWrap) {
+              modalContent.classList.remove('visible');
+            }
+          });
+        }
+        
+        const modalClose = document.querySelector('.modal-close');
+        if (modalClose) {
+          modalClose.addEventListener('click', () => {
+            modalContent.classList.remove('visible');
+          });
+        }
+        
+        const aboutLink = document.querySelector('a[modal="about"]');
+        if (aboutLink) {
+          aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalContent.classList.add('visible');
+          });
+        }
+        
+        // Three.js animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        
+        const modalInner = document.querySelector('.about-modal-inner');
+        modalInner.appendChild(renderer.domElement);
+        renderer.domElement.classList.add('floating-particles');
+        
+        const particles = new THREE.BufferGeometry();
+        const particleCount = 1000;
+        
+        const positions = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount * 3; i++) {
+          positions[i] = (Math.random() - 0.5) * 10;
+        }
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const material = new THREE.PointsMaterial({
+          color: 0x888888,
+          size: 0.02,
+          transparent: true,
+          opacity: 0.5,
+        });
+        
+        const particleSystem = new THREE.Points(particles, material);
+        scene.add(particleSystem);
+        
+        camera.position.z = 5;
+        
+        function animate() {
+          requestAnimationFrame(animate);
+          particleSystem.rotation.x += 0.001;
+          particleSystem.rotation.y += 0.002;
+          renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        function onWindowResize() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(modalInner.clientWidth, modalInner.clientHeight);
+        }
+        
+        window.addEventListener('resize', onWindowResize, false);
+        onWindowResize();
+      });
+    </script>
+    <section class="" style="padding-bottom: 40px;">
       <div class="page-padding">
         <div class="container">
           <div>
             <a
-              modal="about"
-              href="#about"
-              class="card card--footer about-card w-inline-block"
+              href="#"
+              class="card card--footer w-inline-block"
               style="background-color: white; height: 200px;"
+              onclick="openAboutModal(); return false;"
             >
-              <div class="footer-card-content">
+              <div class="">
                 <h3 class="intro-card-heading intro-card-heading--footer">
                   About Mihir
                 </h3>
@@ -2723,6 +3036,40 @@
         }
       </style>
     </section>
+
+    <script>
+      function openAboutModal() {
+        const modalWrap = document.querySelector('.modal-wrap--about');
+        const modalContent = document.querySelector('.about-modal-content');
+        
+        modalWrap.style.display = 'flex';
+        modalContent.classList.add('visible');
+
+        // Add event listener to close button
+        const closeButton = modalWrap.querySelector('.modal-close');
+        closeButton.addEventListener('click', closeAboutModal);
+
+        // Add event listener to background
+        modalWrap.addEventListener('click', function(event) {
+          if (event.target === modalWrap) {
+            closeAboutModal();
+          }
+        });
+      }
+
+      function closeAboutModal() {
+        const modalWrap = document.querySelector('.modal-wrap--about');
+        const modalContent = document.querySelector('.about-modal-content');
+        
+        modalWrap.style.display = 'none';
+        modalContent.classList.remove('visible');
+
+        // Remove event listeners
+        const closeButton = modalWrap.querySelector('.modal-close');
+        closeButton.removeEventListener('click', closeAboutModal);
+        modalWrap.removeEventListener('click', closeAboutModal);
+      }
+    </script>
     
     
     
