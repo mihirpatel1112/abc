@@ -611,12 +611,29 @@
     <main class="main">
       <header class="home-hero">
         <div class="page-padding">
-          <div class="container">
-            <div class="home-hero-header">
+      
+          <div class="container ">
+       
+            <div class="home-hero-header ">
+              <div class="bg-image"></div>
               <div class="home-hero-heading-wrap">
+               
                 <h1 class="home-hero-heading" id="3d-heading">Aspiring Full-Stack Developer.</h1>
                 <canvas id="heroCanvas"></canvas>
                 <style>
+                  .bg-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('/images/dddepth-238.jpg'); /* Add your image path here */
+                    background-size: cover;
+                    background-position: center;
+                   
+                    opacity: 0.1;
+                    z-index: -10;
+                  }
                   #3d-heading {
                     position: relative;
                     z-index: 2;
@@ -634,6 +651,14 @@
                     width: 100%;
                     height: 100%;
                     z-index: 1;
+                  }
+              
+                  @media (max-width: 767px) {
+                    .home-hero-header {
+                      padding-top: 80px;
+                      padding-bottom: 40px;
+                      margin-bottom: -150px;
+                    }
                   }
                 </style>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -709,12 +734,13 @@
                   and grow in the digital world.
                 </p>
               </div>
-              <!-- <a
-                modal="request"
+              <a
                 cursor-ix="true"
-                href="#project-request"
+                href="/images/resume_5.pdf"
+                download="Mihir_Patel_Resume.pdf"
                 class="cta w-inline-block"
-                ><div class="text-block"></div>
+              >
+                <div class="text-block">Download Resume</div>
                 <div class="cta-chevron w-embed">
                   <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -722,65 +748,60 @@
                       fill="currentColor"
                     />
                   </svg>
-                  </div
-              ></a> -->
-              <a
-  
-  cursor-ix="true"
-  href="/images/resume_5.pdf"
-  download="Mihir_Patel_Resume.pdf"
-  class="cta w-inline-block"
->
-
-  <div class="text-block">Download Resume</div>
-  <div class="cta-chevron w-embed">
-    <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M.293 1.707 1.707.293 7.414 6l-5.707 5.707-1.414-1.414L4.585 6z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-</a>
-
-
+                </div>
+              </a>
             </div>
             <div class="home-hero-logos">
-              <div class="home-hero-logo home-hero-logo--first">Worked with</div>
+              <div class="home-hero-logo home-hero-logo--first ">Worked with</div>
               <div class="home-hero-carousel-wrap">
                 <div class="home-hero-carousel-row" >
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/c++.png" width="50" height="50" alt="c++" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/c++.png" width="50" height="50" alt="c++" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/java.png" width="60" height="60" alt="java" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/java.png" width="60" height="60" alt="java" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/html_css_js.png" width="170" height="50" alt="html_css_js" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/html_css_js.png" width="170" height="50" alt="html_css_js" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/react.png" width="110" height="35" alt="react" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/react.png" width="110" height="35" alt="react" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/python.png" width="100" height="90" alt="python" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/python.png" width="100" height="90" alt="python" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                   <div class="home-hero-logo w-embed">
-                    <img src="/images/tailwindcss.png" width="200" height="60" alt="tailwindcss" style="filter: grayscale(100%) opacity(0.7);"/>
+                    <img src="/images/tailwindcss.png" width="200" height="60" alt="tailwindcss" style="filter: grayscale(100%) opacity(0.7); mix-blend-mode: multiply;"/>
                   </div>
                 </div>
-                <div class="home-hero-logos-overlay"></div>
               </div>
             </div>
+            <style>
+              .home-hero-logos {
+                order: -1;
+              }
+              
+              @media (max-width: 767px) {
+                .home-hero-logos {
+                  order: 1;
+                  margin-top: 20px;
+                }
+              }
+            </style>
             
             <style>
-              @media (max-width: 768px) { /* Adjust the breakpoint as needed */
+              @media (max-width: 768px) {
                 .home-hero-logos {
-                  margin-bottom: -25px !important;
+                  margin-bottom: -100px !important;
                 }
 
                 .home-hero-carousel-wrap{
                   margin-bottom: 20px !important;
-                  margin-top: -20px !important;
+                  margin-top: 0 !important;
+                }
+
+                .home-hero-logo.home-hero-logo--first {
+                  font-size: 30px; 
                 }
               }
             </style>
@@ -803,7 +824,16 @@
                     height="1482"
                     alt="Display with a blue mountain wallpaper"
                     class="hero-ui-img"
+                    style="display: block;"
                   />
+                  <style>
+                    @media (max-width: 767px) {
+                      .hero-ui-img {
+                        display: none !important;
+                       
+                      }
+                    }
+                  </style>
                   <div class="hero-ui-inner">
                     <!-- <div class="hero-ui-vid-wrap">
                       <div class="hero-anim-video w-embed">
@@ -847,7 +877,17 @@
                         <div class="hero-intro-wrap">
                           <div class="hero-intro-content">
                             <div class="hero-heading-ui-wrap">
-                              <h2 class="home-hero-heading">Hy, <br />I am Mihir Patel.</h2>
+                              <h2 class="xyz home-hero-heading">Hi, <br />I am Mihir Patel.</h2>
+                              <style>
+                                @media (max-width: 767px) {
+                                  .xyz {
+                                    font-size: 3rem;
+                                    line-height: 1.2;
+                                    text-align: center; 
+                                  
+                                  }
+                                }
+                              </style>
                               <div class="hero-heading-ui">
                                 <div class="hero-heading-ui-tab">
                                   <div>
@@ -875,14 +915,18 @@
                               id="w-node-_4333ec9c-8688-c25f-5852-a4ba9d0b2ee5-025ecb27"
                               class="intro-img-blur-bg"
                             ></div>
-                            <img
-                              src="/images/me.png"
-                              loading="lazy"
-                              height="1208"
-                              width="1060"
-                              alt="Image of Mihir Patel"
-                              class="intro-img"
-                            />
+                            <div class="intro-img-container" style="position: relative;">
+                              <img
+                                src="/images/me.png"
+                                loading="lazy"
+                                height="1208"
+                                width="1060"
+                                alt="Image of Mihir Patel"
+                                class="intro-img"
+                                style="position: relative; z-index: 1;"
+                              />
+                              <div class="gradient-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, white, transparent); z-index: 2;"></div>
+                            </div>
                             <div
                               id="w-node-ddec3b55-bd5c-0f7f-7f48-a618e3fd7686-025ecb27"
                               class="intro-img-overlay"
@@ -898,10 +942,10 @@
           </div>
         </div>
       </header>
-      <section id="work" class="section section--light">
+      <section id="work" class="section section--light" style="margin-top: 100px; background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0.2) 20%, rgba(150,200,255,0.2) 60%, rgba(255,150,100,0.2) 100%); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
         <div class="page-padding">
           <div class="container">
-            <div class="section-header">
+            <div class="section-header home-hero-heading">
               <h2>A small selection of my projects.</h2>
             </div>
             <div class="projects-wrap">
@@ -979,32 +1023,33 @@
                   
                   <div id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27" role="listitem" class="projects-list-item w-dyn-item">
                     <div data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852" class="projects-list-item-link lift">
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
+                      <div class="projects-list-item-wrap ">
+                        <div class="">
                           <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div class="project-list-item-bg" style="background: linear-gradient(135deg, #f2f2f7 0%, #e5e5ea 100%);"></div>
+                            <div class="project-list-item-bg ">
+                              <div class="project-list-item-bg" style="background-image: url('/images/dddepth-323.jpg'); background-size: cover; background-position: center;"></div>
                             </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-content" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div class="project-list-img-inner" style="background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                              <div class="" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px; ">
                                   
-                                  <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">Project Title</h3>
+                                  <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">Foodhub</h3>
                                 </div>
-                                <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Brief project description goes here. This is where you can provide a short overview of your project.</p>
+                                <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Online food ordering platform for restaurants near you</p>
                                 <div class="project-tech" style="margin-bottom: 20px;">
                                   <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">HTML</span>
-                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">CSS</span>
-                                    <span style="background-color: #c2c2c3; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">JavaScript</span>
+                                    <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px;  font-size: 12px; font-weight: 500;">Next.js</span>
+                                    <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Supabase</span>
+                                    <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Tailwindcss</span>
+                                    <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Vercel</span>
                                   </div>
                                 </div>
                                 <div class="project-links" style="display: flex; justify-content: space-between;">
-                                  <a href="#live-site-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
+                                  <a href="#live-site-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                     Live Site
                                   </a>
-                                  <a href="#github-repo-url" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
+                                  <a href="https://github.com/dinosoupy/hungr" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                     GitHub Repo
                                   </a>
@@ -1017,1293 +1062,209 @@
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-        </svg>
-      </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
+                  <style>
+                    @media (max-width: 767px) {
+                     
+                     
+                      .project-list-item-container {
+                        height: 100%;
+                      }
+                      .project-list-img-wrap {
+                        height: 300px;
+                      }
+                      .project-list-img-inner {
+                        height: 100%;
+                      }
+                     
+                    }
+                  </style>
 
 
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div
-                    id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                    role="listitem"
-                    class="projects-list-item w-dyn-item"
-                  >
-                    <div
-                      cursor-ix="true"
-                      data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                      class="projects-list-item-link lift"
-                    >
-                      <div class="projects-list-item-wrap fsm">
-                        <div class="project-list-item-container">
-                          <div
-                            style="
-                              background-color: rgba(205, 205, 205, 0.8);
-                              color: #444;
-                            "
-                            class="project-item-close"
-                          >
-                            <div class="project-item-close-icon w-embed">
-                              <svg
-                                width="20px"
-                                height="20px"
-                                viewBox="0 0 20 20"
-                                version="1.1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                              >
-                                <g
-                                  id="Page-1"
-                                  stroke="none"
-                                  stroke-width="1"
-                                  fill="none"
-                                  fill-rule="evenodd"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                >
-                                  <path
-                                    d="M4,4 L16,16 M16,4 L4,16"
-                                    id="Combined-Shape-Copy"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                  ></path>
-                                </g>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="project-list-img-wrap">
-                            <div class="project-list-item-bg w-embed">
-                              <div
-                                class="project-list-item-bg"
-                                style="
-                                  background: linear-gradient(
-                                    45deg,
-                                    #3a3c47 0%,
-                                    #6b7077 100%
-                                  );
-                                "
-                              ></div>
-                            </div>
-                            <div class="project-list-img-inner">
-                              <div class="project-item-vid w-embed">
-                                <video
-                                  width="100%"
-                                  loop
-                                  muted
-                                  playsinline
-                                  preload="none"
-                                >
-                                
-                                </video>
-                              </div>
-                              
-                              <div
-                                style="
-                                  background-color: rgba(205, 205, 205, 0.8);
-                                "
-                                class="project-item-pause-button pause"
-                              >
-                                <div
-                                  style="color: #444"
-                                  class="project-video-icon project-video-icon--play w-embed"
-                                >
-                                  <svg
-                                    width="10px"
-                                    height="11px"
-                                    viewBox="0 0 10 11"
-                                    version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                  >
-                                    <g
-                                      id="Project-Images"
-                                      stroke="none"
-                                      stroke-width="1"
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <g
-                                        fill="currentColor"
-                                        fill-rule="nonzero"
-                                      >
-                                        <path
-                                          d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                        ></path>
-                                      </g>
-                                    </g>
-                                  </svg>
-                                </div>
-                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="project-item-info-wrap">
-                            
-                           
-                          
-                          </div>
-                        </div>
-                        <div class="hidden fathom-id">KYBXS3CL</div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div
-                  id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27"
-                  role="listitem"
-                  class="projects-list-item w-dyn-item"
-                >
-                  <div
-                    cursor-ix="true"
-                    data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852"
-                    class="projects-list-item-link lift"
-                  >
-                    <div class="projects-list-item-wrap fsm">
-                      <div class="project-list-item-container">
-                        <div
-                          style="
-                            background-color: rgba(205, 205, 205, 0.8);
-                            color: #444;
-                          "
-                          class="project-item-close"
-                        >
-                          <div class="project-item-close-icon w-embed">
-                            <svg
-                              width="20px"
-                              height="20px"
-                              viewBox="0 0 20 20"
-                              version="1.1"
-                              xmlns="http://www.w3.org/2000/svg"
-                              xmlns:xlink="http://www.w3.org/1999/xlink"
-                            >
-                              <g
-                                id="Page-1"
-                                stroke="none"
-                                stroke-width="1"
-                                fill="none"
-                                fill-rule="evenodd"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  d="M4,4 L16,16 M16,4 L4,16"
-                                  id="Combined-Shape-Copy"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) "
-                                ></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="project-list-img-wrap">
-                          <div class="project-list-item-bg w-embed">
-                            <div
-                              class="project-list-item-bg"
-                              style="
-                                background: linear-gradient(
-                                  45deg,
-                                  #3a3c47 0%,
-                                  #6b7077 100%
-                                );
-                              "
-                            ></div>
-                          </div>
-                          <div class="project-list-img-inner">
-                            <div class="project-item-vid w-embed">
-                              <video
-                                width="100%"
-                                loop
-                                muted
-                                playsinline
-                                preload="none"
-                              >
-                              
-                              </video>
-                            </div>
-                            
-                            <div
-                              style="
-                                background-color: rgba(205, 205, 205, 0.8);
-                              "
-                              class="project-item-pause-button pause"
-                            >
-                              <div
-                                style="color: #444"
-                                class="project-video-icon project-video-icon--play w-embed"
-                              >
-                                <svg
-                                  width="10px"
-                                  height="11px"
-                                  viewBox="0 0 10 11"
-                                  version="1.1"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                                >
-                                  <g
-                                    id="Project-Images"
-                                    stroke="none"
-                                    stroke-width="1"
-                                    fill="none"
-                                    fill-rule="evenodd"
-                                  >
-                                    <g
-                                      fill="currentColor"
-                                      fill-rule="nonzero"
-                                    >
-                                      <path
-                                        d="M0.947560571,11 C1.08435342,11 1.21787613,10.9771858 1.3481287,10.9315574 C1.47838126,10.885929 1.62114497,10.818447 1.77641983,10.7291114 L9.19749712,6.50180767 C9.47570332,6.3410676 9.67900536,6.18639531 9.80740321,6.0377908 C9.93580107,5.88918629 10,5.70889805 10,5.49692609 C10,5.28623492 9.93580107,5.10626688 9.80740321,4.95702197 C9.67900536,4.80777706 9.47570332,4.65483385 9.19749712,4.49819233 L1.77641983,0.266662009 C1.62114497,0.178799311 1.47838126,0.112389968 1.3481287,0.0674339807 C1.21787613,0.0224779936 1.08435342,0 0.947560571,0 C0.678920755,0 0.453834039,0.0951632434 0.272300424,0.28548973 C0.0907668079,0.475816217 0,0.73597818 0,1.06597562 L0,9.92979775 C0,10.2597952 0.0907668079,10.5206616 0.272300424,10.712397 C0.453834039,10.9041323 0.678920755,11 0.947560571,11 Z"
-                                      ></path>
-                                    </g>
-                                  </g>
-                                </svg>
-                              </div>
-                              
-                            </div>
-                          </div>
-                        </div>
-                        <div class="project-item-info-wrap">
-                          
-                         
-                        
-                        </div>
-                      </div>
-                      <div class="hidden fathom-id">KYBXS3CL</div>
-                    </div>
-                  </div>
+<div id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27" role="listitem" class="projects-list-item w-dyn-item">
+  <div data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852" class="projects-list-item-link lift">
+    <div class="projects-list-item-wrap ">
+      <div class="">
+        <div class="project-list-img-wrap">
+          <div class="project-list-item-bg ">
+            <div class="project-list-item-bg" style="background-image: url('/images/dddepth-329.jpg'); background-size: cover; background-position: center;"></div>
+          </div>
+          <div class="project-list-img-inner" style="background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+            <div class="" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+              <div style="display: flex; align-items: center; margin-bottom: 15px; ">
+                
+                <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">ADAPT</h3>
+              </div>
+              <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Data visualization tool which uses Australia's previous census data to provide insights into the population and demographics of Australia</p>
+              <div class="project-tech" style="margin-bottom: 20px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px;  font-size: 12px; font-weight: 500;">Next.js</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Neo4j</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Python</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Vega</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Tailwindcss</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Material UI</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Vercel</span>
+             
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Clerk</span>
                 </div>
+              </div>
+              <div class="project-links" style="display: flex; justify-content: space-between;">
+                <a href="https://adapt-mvp.vercel.app/home" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/dinosoupy/adapt" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hidden fathom-id">KYBXS3CL</div>
+    </div>
+  </div>
+</div>
+<style>
+  @media (max-width: 767px) {
+   
+   
+    .project-list-item-container {
+      height: 100%;
+    }
+    .project-list-img-wrap {
+      height: 300px;
+    }
+    .project-list-img-inner {
+      height: 100%;
+    }
+   
+  }
+</style>
 
-                 
-                  
+
+<div id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27" role="listitem" class="projects-list-item w-dyn-item">
+  <div data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852" class="projects-list-item-link lift">
+    <div class="projects-list-item-wrap ">
+      <div class="">
+        <div class="project-list-img-wrap">
+          <div class="project-list-item-bg ">
+            <div class="project-list-item-bg" style="background-image: url('/images/dddepth-260.jpg'); background-size: cover; background-position: center;"></div>
+          </div>
+          <div class="project-list-img-inner" style="background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+            <div class="" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+              <div style="display: flex; align-items: center; margin-bottom: 15px; ">
+                
+                <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">Tic Tac Toe</h3>
+              </div>
+              <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Web based Tic Tac Toe game</p>
+              <div class="project-tech" style="margin-bottom: 20px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px;  font-size: 12px; font-weight: 500;">React</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Javascript</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Tailwindcss</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Vercel</span>
+                </div>
+              </div>
+              <div class="project-links" style="display: flex; justify-content: space-between;">
+                <a href="https://tic-tac-cahuno33b-mihirs-projects-a90d0269.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/mihirpatel1112/tic-tac-toe" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hidden fathom-id">KYBXS3CL</div>
+    </div>
+  </div>
+</div>
+<style>
+  @media (max-width: 767px) {
+   
+   
+    .project-list-item-container {
+      height: 100%;
+    }
+    .project-list-img-wrap {
+      height: 300px;
+    }
+    .project-list-img-inner {
+      height: 100%;
+    }
+   
+  }
+</style>
+
+<div id="w-node-b83bbba5-d6fa-c08d-f768-415429f868b3-025ecb27" role="listitem" class="projects-list-item w-dyn-item">
+  <div data-w-id="b9ab3085-fe1c-1c9a-1b7e-788862513852" class="projects-list-item-link lift">
+    <div class="projects-list-item-wrap ">
+      <div class="">
+        <div class="project-list-img-wrap">
+          <div class="project-list-item-bg ">
+            <div class="project-list-item-bg" style="background-image: url('/images/dddepth-238.jpg'); background-size: cover; background-position: center;"></div>
+          </div>
+          <div class="project-list-img-inner" style="background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+            <div class="" style="padding: 20px; color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+              <div style="display: flex; align-items: center; margin-bottom: 15px; ">
+                
+                <h3 class="project-title" style="margin: 0 0 0 0px; font-size: 20px; font-weight: 600;">Tour and Travel Booking Website</h3>
+              </div>
+              <p class="project-description" style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.4; color: #515154;">Booking website for tours and travel</p>
+              <div class="project-tech" style="margin-bottom: 20px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px;  font-size: 12px; font-weight: 500;">React</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Javascript</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Tailwindcss</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Clerk</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Supabase</span>
+                  <span style="background-color: #ffffff; padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: 500;">Vercel</span>
+                </div>
+              </div>
+              <div class="project-links" style="display: flex; justify-content: space-between;">
+                <a href="https://tours-and-travel-5fex.vercel.app/website" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #0071e3; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  Live Site
+                </a>
+                <a href="https://github.com/mihirpatel1112/tours-and-travel" target="_blank" rel="noopener noreferrer" class="project-link-button" style="padding: 8px 16px; background-color: #1d1d1f; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hidden fathom-id">KYBXS3CL</div>
+    </div>
+  </div>
+</div>
+<style>
+
+  
+  @media (max-width: 767px) {
+   
+   
+    .project-list-item-container {
+      height: 100%;
+    }
+    .project-list-img-wrap {
+      height: 300px;
+    }
+    .project-list-img-inner {
+      height: 100%;
+    }
+   
+  }
+</style>  
+                
+
                  
                 </div> 
               </div>
@@ -3126,10 +2087,7 @@
               data-wf-page-id="63873fc2d6797e19025ecb27"
               data-wf-element-id="c87f18de-7799-6485-d3f2-6bfa1d2c8640"
             >
-              <div class="request-form-top">
-                <div>Project request</div>
-                <div cursor-ix="true" class="cta cta--form">Cancel</div>
-              </div>
+             
               <div class="request-form-group">
                 <div class="form-label">Full name</div>
                 <input
